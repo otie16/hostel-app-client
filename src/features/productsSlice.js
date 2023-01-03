@@ -1,39 +1,37 @@
 /*For async thunk */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { url } from "./api"
-import {toast} from "react-toastify"
+import { url } from "./api";
+import { toast } from "react-toastify";
 /*Creating object for initialstate*/
 const initialState = {
   items: [],
   status: null,
   error: null,
-  createStatus: null
+  createStatus: null,
 };
 
 export const productsFetch = createAsyncThunk(
   "products/productsFetch",
   async () => {
-      const response = await axios.get("http://localhost:5000/api/products");
-      return response?.data;
+    const response = await axios.get(`${url}/products`);
+    return response?.data;
   }
 );
 
 export const productsCreate = createAsyncThunk(
   "products/productsCreate",
   async (values) => {
-    try { 
+    try {
       const response = await axios.post(`${url}/products`, values);
-      toast.success("product created")
+      toast.success("product created");
       return response?.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       toast.error(error.response?.data);
     }
   }
 );
-
-
 
 const productsSlice = createSlice({
   name: "products",
