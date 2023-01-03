@@ -3,10 +3,11 @@ import { url } from "./api";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const productsApi = createApi({
-  reducerPath: "productsApi" /*API service name*/,
+  reducerPath: "productsApi" /*API service name in product*/,
   baseQuery: fetchBaseQuery({
     baseUrl: "https://hostel-app-api.onrender.com/api/",
-  }) /* setting a base URL for fetching our data*/,
+  })
+  /* setting a base URL for fetching our data*/,
   /* All our queries go here*/
   endpoints: (builder) => ({
     getAllProducts: builder.query({

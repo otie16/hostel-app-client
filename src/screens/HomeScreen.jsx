@@ -1,4 +1,4 @@
-// import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar";
 import Products from "../screens/Products";
 // import { useSelector } from "react-redux"; //for async thunk
 
